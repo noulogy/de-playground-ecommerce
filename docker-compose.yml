@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  de_postgres:
+    image: postgres:15-alpine
+    container_name: postgres_de_sandbox
+    environment:
+      POSTGRES_USER: de_admin
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: de_warehouse
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_de_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_de_data:

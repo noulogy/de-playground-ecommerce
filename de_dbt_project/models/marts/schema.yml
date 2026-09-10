@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fct_sales_with_user
+    columns:
+      - name: sales_id
+        data_tests:
+          - unique
+          - not_null
+      - name: user_id
+        data_tests:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
